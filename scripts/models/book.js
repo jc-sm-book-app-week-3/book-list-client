@@ -14,7 +14,6 @@ var app = app || {};
   };
   Book.loadAll = bookData => {
 
-    //bookData.forEach(bookObject => Book.all.push(new Book(bookObject)));
     Book.all = bookData.map(ele => new Book(ele));
     Book.all.map(book=> book.title).sort();
   };
@@ -24,9 +23,7 @@ var app = app || {};
         Book.loadAll(results);
         callback();
       })
-      .catch(function(err) {
-        console.error(err);
-      });
+      .catch(app.errorView.initErrorPage);
   };
 
   module.Book=Book;

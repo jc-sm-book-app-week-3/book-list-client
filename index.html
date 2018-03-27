@@ -23,6 +23,8 @@
         </div>
       </section>
     </script>
+    <script class="error-template" type="text/x-handlebars-template">
+    <section> <p>{{err.statusText}}</p></section></script>
       
       <!-- <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
         <header>
@@ -35,11 +37,11 @@
 <body>
    
     <main>
-      <section id="book-list"></section>
-
-      <p> Book Count: </p>
-     
-      <section id="book" class="tab-content">
+      <section class="container" >
+        <p> Book Count:</p>
+      </section>
+      <section class="container book-view" id="book-list"></section>
+      <section id="book" class="tab-content container">
         <div>
           <ul id="filters">
             <li>
@@ -55,10 +57,10 @@
           </ul>
         </div>
       </section>
-      <section id="about">
+      <section class="container" id="about">
           <h2>About Us </h2>
-
-      </section>
+    </section>
+    <section class="container errorView"> 404 </section>
     </main>
     <footer></footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
