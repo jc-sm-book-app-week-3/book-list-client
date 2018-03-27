@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script src="scripts/models/book.js"></script>
+     <script src="scripts/views/book-view.js"></script>
+     <script src="scripts/views/error-view.js"></script>
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
     <title>Book List</title>
 
     <!-- Template for books -->
-    <script id="book-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+    <script id="book-list-template" type="text/x-handlebars-template">
+      <section class="book-display">
+        <img class="picture" src="{{img_url}}"/> 
+        <div>
+          <h1><i>{{title}}</h1>
+          <h2><i>{{author}}</i></h2>
+        </div>
+      </section>
+    </script>
+      
+      <!-- <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
         <header>
           <h1>{{title}}</h1>
           <h2>{{author}}</h2> 
         </header>
       </article>
-    </script>
+    </script> -->
 </head>
 <body>
-    <header></header>
+   
     <main>
+      <section id="book-list"></section>
+
+      <p> Book Count: </p>
+     
       <section id="book" class="tab-content">
         <div>
           <ul id="filters">
@@ -36,6 +55,10 @@
           </ul>
         </div>
       </section>
+      <section id="about">
+          <h2>About Us </h2>
+
+      </section>
     </main>
     <footer></footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -44,5 +67,6 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script> app.Book.fetchAll(app.bookView.initIndexPage)</script>
 </body>
 </html>
