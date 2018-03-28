@@ -4,23 +4,27 @@ FInxing stuff
 
 # Project Name
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
+**Author**: Joanna Coll and Sean Miller
+**Version**: 1.1.0 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+1. First we had to create the array of objects and have the data populate it. 
+2. Sorted the array on titles and appended to the HTML.
+3. Fetched the data from the database and populated the HTML.
+4. Created the function to display only the book content on the page and hide other HTML elements.
+5. Added the error view function which is linked to HTML and displays only Error message hiding the rest of the page content.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+HTML, CSS, JavaScript, jQuery, Node.js, SQL, Express, Postgres
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+03-27-2018 10:00am - Planned the tasks to do. 
+03-27-2018 12:00pm - Finished article.js.
+03-27-2018 3:00pm - Finished articleView.js and errorwiew.js.
+03-27-2018 4:00pm - Working on CSS , testing and README.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+Nicholas TA
