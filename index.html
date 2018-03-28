@@ -9,10 +9,11 @@
   <script id="book-list-template" type="text/x-handlebars-template">
     <section class="book-display">
       <img class="picture" src="{{img_url}}"/> 
-      <div>
-        <h1><i>{{title}}</h1>
-        <h2><i>{{author}}</i></h2>
+      <div id='flap'>
+        <h1>"{{title}}"</h1>
+        <h2>{{author}}</h2>
       </div>
+      
     </section>
   </script>
   <title>Book List</title>
@@ -41,7 +42,7 @@
       </ul>
     </section>
     <section id="book-list"></section>
-    <section id="about"><h2>About Us </h2></section>
+    <section id="about" class="container"><h2>About Us </h2></section>
   </main>
   <footer><img id='linkedin'src='styles/fonts/li_logo.png'><img id='github' src='styles/fonts/gh_logo.png'/></footer>
 

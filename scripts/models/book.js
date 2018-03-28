@@ -20,7 +20,7 @@ var app = app || {};
 
   };
   Book.fetchAll = callback => {
-    $.getJSON('http://localhost:3000/api/v1/books')
+    $.getJSON('http://localhost:3000/api/v1/books')//This should be a declared variable localhost
       .then(results => {
         Book.loadAll(results);
         callback();
