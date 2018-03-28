@@ -1,5 +1,6 @@
 'use strict';
 var app = app || {};
+let API_URL = 'http://localhost:3000';
 
 (function (module){
   function Book(rawDataObj) {
@@ -13,12 +14,27 @@ var app = app || {};
     return template(this);
 
   };
+  Book.prototype.insertRecord = function(callback) {
+    $.post(`${API_URL}/api/v1/books`, {
+      title: this.title,
+      author: this.author,
+      isbn: this.isbn,
+      img_url: this.img_url,
+      description: this.description
+    })
+      .then(data => {
+        console.log(data);
+        if (callback) callback();
+      });
+  };
+
   Book.loadAll = bookData => {
     bookData = bookData.sort((a,b)=> b.title - a.title);
     Book.all = bookData.map(ele => new Book(ele));
   };
+ 
   Book.fetchAll = callback => {
-    $.getJSON('http://localhost:3000/api/v1/books')//This should be a declared variable localhost
+    $.getJSON(`${API_URL}/api/v1/books`)//This should be a declared variable localhost
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -43,19 +59,7 @@ var app = app || {};
 //       if (callback) callback();
 //     });
 // };
-// Book.prototype.insertRecord = function(callback) {
-//   $.post('/api/v1/books', {
-//     // author: this.author,
-//     // authorUrl: this.authorUrl,
-//     // body: this.body, category: this.category,
-//     // publishedOn: this.publishedOn,
-//     // title: this.title
-//   })
-//     .then(data => {
-//       console.log(data);
-//       if (callback) callback();
-//     });
-// };
+//
 // Book.prototype.deleteRecord = function(callback) {
 //   $.ajax({
 //     url: `/api/v1/books/${this.article_id}`,
