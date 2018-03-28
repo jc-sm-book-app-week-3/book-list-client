@@ -1,74 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-    <script src="scripts/models/book.js"></script>
-     <script src="scripts/views/book-view.js"></script>
-     <script src="scripts/views/error-view.js"></script>
-    <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <title>Book List</title>
-
-    <!-- Template for books -->
-    <script id="book-list-template" type="text/x-handlebars-template">
-      <section class="book-display">
-        <img class="picture" src="{{img_url}}"/> 
-        <div>
-          <h1><i>{{title}}</h1>
-          <h2><i>{{author}}</i></h2>
-        </div>
-      </section>
-    </script>
-    <script class="error-template" type="text/x-handlebars-template">
-    <section> <p>{{statusText}}</p></section></script>
-      
-      <!-- <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
-        <header>
-          <h1>{{title}}</h1>
-          <h2>{{author}}</h2> 
-        </header>
-      </article>
-    </script> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <script id="book-list-template" type="text/x-handlebars-template">
+    <section class="book-display">
+      <img class="picture" src="{{img_url}}"/> 
+      <div id='flap'>
+        <h1>{{title}}</h1>
+        <h2>{{author}}</h2>
+      </div>
+    </section>
+  </script>
+  <title>Book List</title>
+  <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 </head>
 <body>
-   
-    <main>
-      <section class="container" >
-        <p> Book Count:</p>
-      </section>
-      <section class="container book-view" id="book-list"></section>
-      <section id="book" class="tab-content container">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="title-filter">
-                <option value="">-- Filter by Titles --</option>
-              </select>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="container" id="about">
-          <h2>About Us </h2>
+  <header>
+    <nav>
+      <ul>
+        <li class='navigation'><a href=''>HOME</a></li>
+        <li class='navigation'><a href=''>ABOUT US</a></li>
+      </ul>
+      <h1 id='API'><strong>GET:</strong>/API/V1/BOOKS</h1>
+    </nav>
+    <div id='hero'>
+      <img class='logo' src='styles/fonts/cf-badge.png'/>
+      <h1 id='title'>book app</h1>
+    </div>
+  </header>
+  <main>
+    <section id="filter">
+      <h2 class='count'> Book Count: </h2><div class='count number'>5</div>
+      <ul>
+        <li><select id="author-filter"><option value="">-- Filter by Authors --</option></select></li>
+        <li><select id="title-filter"><option value="">-- Filter by Titles --</option></select></li>
+      </ul>
     </section>
-    <section class="container errorView"> 404 </section>
-    </main>
-    <footer></footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-    <script src="scripts/models/book.js"></script>
-    <script src="scripts/views/book-view.js"></script>
-    <script src="scripts/views/error-view.js"></script>
-    <script> app.Book.fetchAll(app.bookView.initIndexPage)</script>
+    <section id="book-list"></section>
+    <section id="about" class="container"><h2>About Us </h2></section>
+  </main>
+  <footer><img id='linkedin'src='styles/fonts/li_logo.png'><img id='github' src='styles/fonts/gh_logo.png'/></footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+  <script src="scripts/models/book.js"></script>
+  <script src="scripts/views/book-view.js"></script>
+  <script src="scripts/views/error-view.js"></script>
+  <script> app.Book.fetchAll(app.bookView.initIndexPage)</script>
 </body>
 </html>
