@@ -5,6 +5,7 @@
 #filter ul{text-align:center;}
 #filter li{padding-right:3%;padding-top:2%;}
 #filter h2{padding-top:4%;margin-left:7%;}
+.count{display:inline-block;padding-right:6%;}
 
 
 body{width:100%;height:100%;min-width:480px; max-width:640px;padding:16px;margin:0 auto;}
@@ -13,9 +14,9 @@ nav{font-size: 25px;}
 #API{float:right;}
 #hero{background-color: darkgray;height:175px;}
 header ul,li, h1{display:inline-block;}
-header .logo{padding:8px;float:left;}
+header .logo{margin:15px;float:left;}
 #title{padding-left:40px;padding-top:50px;font-size: 50px;}
-main{background-color: lightgrey;font-size: 35px;}
-footer{background-color: rgb(68, 65, 65);}
+main{background-color: lightgrey;font-size: 35px;padding-bottom:8%;}
+footer{background-color: rgb(68, 65, 65);height:100px;}
 footer img{float:right;padding-right:15px;padding-top:10px;}
 #linkedin{padding-top:25px;}

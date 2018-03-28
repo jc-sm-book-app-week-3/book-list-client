@@ -16,8 +16,6 @@ var app = app || {};
   Book.loadAll = bookData => {
     bookData = bookData.sort((a,b)=> b.title - a.title);
     Book.all = bookData.map(ele => new Book(ele));
-
-
   };
   Book.fetchAll = callback => {
     $.getJSON('http://localhost:3000/api/v1/books')//This should be a declared variable localhost
@@ -27,7 +25,6 @@ var app = app || {};
       })
       .catch(app.errorView.initErrorPage);
   };
-
   module.Book=Book;
 })(app);
 

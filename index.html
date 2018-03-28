@@ -10,10 +10,9 @@
     <section class="book-display">
       <img class="picture" src="{{img_url}}"/> 
       <div id='flap'>
-        <h1>"{{title}}"</h1>
+        <h1>{{title}}</h1>
         <h2>{{author}}</h2>
       </div>
-      
     </section>
   </script>
   <title>Book List</title>
@@ -35,7 +34,7 @@
   </header>
   <main>
     <section id="filter">
-      <h2> Book Count: </h2>
+      <h2 class='count'> Book Count: </h2><div class='count number'>5</div>
       <ul>
         <li><select id="author-filter"><option value="">-- Filter by Authors --</option></select></li>
         <li><select id="title-filter"><option value="">-- Filter by Titles --</option></select></li>
