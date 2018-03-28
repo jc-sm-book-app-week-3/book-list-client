@@ -1,0 +1,13 @@
+*{box-sizing: border-box;margin:0px;padding:0px;}
+body{width:100%;min-width:480px; max-width:640px;padding:16px;margin:0 auto;}
+.navigation{float:left;padding:5px;}
+nav{font-size: 25px;}
+#API{float:right;}
+#hero{background-color: darkgray;height:175px;}
+header ul,li, h1{display:inline-block;}
+header .logo{padding:8px;float:left;}
+#title{padding-left:40px;padding-top:50px;font-size: 50px;}
+main{background-color: lightgrey;height:900px;font-size: 35px;}
+footer{background-color: darkgray;height:100px;}
+footer img{float:right;padding-right:15px;padding-top:10px;}
+#linkedin{padding-top:25px;}
