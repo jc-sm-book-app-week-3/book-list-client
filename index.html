@@ -6,15 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script id="book-list-template" type="text/x-handlebars-template">
-    <section class="book-display">
+    <section class="book-display container" >
       <img class="picture" src="{{img_url}}"/> 
       <div id='flap'>
-        <h1>{{title}}</h1>
+        <h1><a href="/books/:{{book_id}}"></a></h1>
         <h2>{{author}}</h2>
       </div>
+    </section>
+    <section class="book-display container" id="single-display">
+      <h1>{{title}}</h1>
+      <h2>{{author}}</h2>
+      <h2>{{isbn}}</h2>
+      <img class="picture" src="{{img_url}}"/>
+      <p>{{description}}</p>
     </section>
   </script>
   <title>Book List</title>
@@ -60,12 +65,12 @@
         <label>
           <input type="text" id="img-url" placeholder="Image URL" required>
         </label>
-        <textarea id="descritpion" rows="8" cols="40" required></textarea>
+        <textarea id="description" rows="8" cols="40" required></textarea>
         <button type="submit">Submit</button>
       </form>
     </section>
 
-    <section id="book-list"></section>
+    <section id="book-list" class="container"></section>
     <section id="about" class="container"><h2>About Us </h2></section>
 
   </main>
@@ -74,9 +79,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script src="scripts/models/book.js"></script>
   <script src="scripts/views/book-view.js"></script>
   <script src="scripts/views/error-view.js"></script>
+  <script src="scripts/controllers/routes.js"></script>
   <script> app.Book.fetchAll(app.bookView.initIndexPage)</script>
 </body>
 </html>
