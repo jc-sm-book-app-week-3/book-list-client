@@ -1,5 +1,6 @@
 'use strict';
 var app = app || {};
+
 (function (module){
   function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => {
@@ -13,10 +14,10 @@ var app = app || {};
 
   };
   Book.loadAll = bookData => {
-
-    //bookData.forEach(bookObject => Book.all.push(new Book(bookObject)));
+    bookData = bookData.sort((a,b)=> b.title - a.title);
     Book.all = bookData.map(ele => new Book(ele));
-    Book.all.map(book=> book.title).sort();
+
+
   };
   Book.fetchAll = callback => {
     $.getJSON('http://localhost:3000/api/v1/books')
@@ -24,9 +25,7 @@ var app = app || {};
         Book.loadAll(results);
         callback();
       })
-      .catch(function(err) {
-        console.error(err);
-      });
+      .catch(app.errorView.initErrorPage);
   };
 
   module.Book=Book;
