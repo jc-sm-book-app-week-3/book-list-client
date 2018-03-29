@@ -11,14 +11,15 @@ var app = app || {};
     $('#book-form').show();
     $('#book-form').on('submit', bookView.submit);
   };
-  bookView.initSingleBookPage = (ctx)=>{
+  bookView.initSingleBookPage = (book)=>{
+    console.log(book);
     $('.container').hide();
     //$('#single-display').empty();
-    $('#book-form').empty();
-    let filtered= app.Book.all.filter(x=>x.book_id === ctx.params.book_id)[0];
+    $('#book-form').hide();
+    //let filtered= app.Book.all.filter(x=>x.book_id = ctx.params.book_id)[0];
     console.log('winning');
     var template = Handlebars.compile($('#single-template').text());
-    $('#single-display').append(template(filtered));
+    $('#single-display').append(template(book));
     $('#single-display').show();
   };
   bookView.submit = event => {
