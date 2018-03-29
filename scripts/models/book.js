@@ -12,7 +12,6 @@ let API_URL = 'http://localhost:3000';
   Book.prototype.toHtml = function() {
     var template = Handlebars.compile($('#book-list-template').text());
     return template(this);
-
   };
   Book.prototype.insertRecord = function(callback) {
     $.post(`${API_URL}/api/v1/books`, {
@@ -34,18 +33,19 @@ let API_URL = 'http://localhost:3000';
   };
 
   Book.fetchAll = callback => {
-    $.getJSON(`${API_URL}/api/v1/books/`)//This should be a declared variable localhost
+    $.get(`${API_URL}/api/v1/books/`)
       .then(results => {
         Book.loadAll(results);
         callback();
       })
       .catch(app.errorView.initErrorPage);
   };
-  Book.fetchOne =(ctx, callback) =>{
-    $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
+  Book.fetchOne = (ctx, callback) =>{
+    console.log(ctx)
+    $.get(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
       .then(results=>{
         Book.loadAll(results);
-        callback();
+        callback(ctx);
       })
       .catch(app.errorView.initErrorPage);
   };
