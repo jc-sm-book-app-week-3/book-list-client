@@ -23,6 +23,8 @@
       <h2>{{isbn}}</h2>
       <img class="picture" src="{{img_url}}"/>
       <p>{{description}}</p>
+      <button id="update-button" data-id={{book_id}} type="click">Update</button>
+      <button id="delete-button" data-id={{book_id}}>Delete</button>
     </section>
   </script>
   <title>Book List</title>
@@ -54,7 +56,7 @@
     </section>
     
     <section id="book-form" class="">
-      <h1>New Article</h1>
+      <h1>New Book</h1>
       <form action="#" id="new-form">
         <label>
           <input type="text" id="book-title" placeholder="Book title" required>
@@ -73,6 +75,25 @@
       </form>
     </section>
 
+    <section id="update-form" class="container">
+      <h1>Update Book</h1>
+      <form action="#" id="update-book">
+        <label>
+          <input type="text" id="book-title" placeholder="Book title" required>
+        </label>
+        <label>
+          <input type="text" id="book-author" placeholder="Author Name" required>
+        </label>
+        <label>
+          <input type="text" id="isbn" placeholder="ISBN Number" required>
+        </label>
+        <label>
+          <input type="text" id="img-url" placeholder="Image URL" required>
+        </label>
+        <textarea id="description" rows="8" cols="40" required></textarea>
+        <button id="submit-update" type="submit">Submit</button>
+      </form>
+    </section>
     <section id="book-list" class="container"></section>
     <section id="single-display"></section>
     <section id="about" class="container"><h2>About Us </h2></section>
