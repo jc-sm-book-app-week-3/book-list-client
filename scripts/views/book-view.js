@@ -5,25 +5,25 @@ var app = app || {};
 
   let bookView = {};
 
-  bookView.initNewBookPage = () => {
+  bookView.initNewBookPage = (ctx) => {
+    console.log(ctx);
     $('.container').hide();
-    $('#book-form').empty();
     $('#book-form').show();
     $('#book-form').on('submit', bookView.submit);
   };
   bookView.initSingleBookPage = (ctx)=>{
     $('.container').hide();
-    $('#single-display').empty();
+    // $('#single-display').empty();
     $('#book-form').empty();
     let filtered= app.Book.all.filter(x=>x.book_id === ctx.params.book_id)[0];
-    console.log('winning');
+    console.log(filtered);
     var template = Handlebars.compile($('#single-template').text());
     $('#single-display').append(template(filtered));
     $('#single-display').show();
   };
   bookView.submit = event => {
     console.log('now');
-    event.preventDefault();
+    //event.preventDefault();
     let book = new app.Book({
       title: $('#book-title').val(),
       author: $('#book-author').val(),
@@ -31,7 +31,9 @@ var app = app || {};
       img_url: $('#img-url').val(),
       description: $('#description').val()
     });
+    //document.getElementById('#new-form').reset();
     book.insertRecord();
+    //bookView.initIndexPage();
 
   };
   bookView.initIndexPage=()=>{

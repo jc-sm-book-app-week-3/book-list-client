@@ -9,6 +9,7 @@ let API_URL = 'http://localhost:3000';
     }, this);
   }
   Book.all = [];
+  
   Book.prototype.toHtml = function() {
     var template = Handlebars.compile($('#book-list-template').text());
     return template(this);
@@ -22,18 +23,18 @@ let API_URL = 'http://localhost:3000';
       description: this.description
     })
       .then(data => {
-        console.log(data);
+        //console.log(data);
         if (callback) callback();
       });
   };
 
   Book.loadAll = bookData => {
-    bookData = bookData.sort((a,b)=> b.title - a.title);
+    //bookData = bookData.sort((a,b)=> b.title - a.title);
     Book.all = bookData.map(ele => new Book(ele));
   };
 
   Book.fetchAll = (callback) => {
-    $.getJSON(`${API_URL}/api/v1/books/`)
+    $.get(`${API_URL}/api/v1/books/`)
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -41,10 +42,8 @@ let API_URL = 'http://localhost:3000';
       .catch(app.errorView.initErrorPage);
   };
   Book.fetchOne = (ctx, callback) =>{
-    console.log(ctx.params.book_id);
-    debugger;
-    $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
-      .then(results=>{
+    $.get(`http://localhost:3000/api/v1/books/${ctx.params.book_id}`)
+    .then(results=>{
         Book.loadAll(results);
         callback(ctx);
       })

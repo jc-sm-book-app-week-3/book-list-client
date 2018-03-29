@@ -46,14 +46,14 @@
 
   <main>
     <section id="filter">
-      <h2 class='count'> Book Count: </h2><div class='count number'>5</div>
+      <h2 class='count'> Book Count: </h2><div class='count number'><script>app.Book.all.length</script></div>
       <ul>
         <li><select id="author-filter"><option value="">-- Filter by Authors --</option></select></li>
         <li><select id="title-filter"><option value="">-- Filter by Titles --</option></select></li>
       </ul>
     </section>
     
-    <section id="book-form" class="">
+    <section id="book-form" class="container">
       <h1>New Article</h1>
       <form action="#" id="new-form">
         <label>
@@ -79,7 +79,6 @@
 
   </main>
   <footer><img id='linkedin'src='styles/fonts/li_logo.png'><img id='github' src='styles/fonts/gh_logo.png'/></footer>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
