@@ -32,8 +32,8 @@ let API_URL = 'http://localhost:3000';
     Book.all = bookData.map(ele => new Book(ele));
   };
 
-  Book.fetchAll = callback => {
-    $.get(`${API_URL}/api/v1/books/`)
+  Book.fetchAll = (callback) => {
+    $.getJSON(`${API_URL}/api/v1/books/`)
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -41,8 +41,9 @@ let API_URL = 'http://localhost:3000';
       .catch(app.errorView.initErrorPage);
   };
   Book.fetchOne = (ctx, callback) =>{
-    console.log(ctx)
-    $.get(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
+    console.log(ctx.params.book_id);
+    debugger;
+    $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
       .then(results=>{
         Book.loadAll(results);
         callback(ctx);
