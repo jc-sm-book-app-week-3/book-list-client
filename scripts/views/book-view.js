@@ -7,13 +7,13 @@ var app = app || {};
 
   bookView.initNewBookPage = () => {
     $('.container').hide();
-    $('#book-form').empty();
+    //$('#book-form').empty();
     $('#book-form').show();
     $('#book-form').on('submit', bookView.submit);
   };
   bookView.initSingleBookPage = (ctx)=>{
     $('.container').hide();
-    $('#single-display').empty();
+    //$('#single-display').empty();
     $('#book-form').empty();
     let filtered= app.Book.all.filter(x=>x.book_id === ctx.params.book_id)[0];
     console.log('winning');
