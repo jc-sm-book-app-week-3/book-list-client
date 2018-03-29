@@ -46,8 +46,9 @@ let API_URL = 'http://localhost:3000';
 
     $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
       .then(results=>{
-        Book.loadAll(results);
-        callback(ctx);
+        //Book.loadAll(results);
+        results= new Book(results[0]);
+        callback(results);
       })
       .catch(app.errorView.initErrorPage);
   };
