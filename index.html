@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href=".">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
   <script id="book-list-template" type="text/x-handlebars-template">
-    <section class="book-display container" >
+    <section class="book-display container">
       <img class="picture" src="{{img_url}}"/> 
       <div id='flap'>
-        <h1><a href="/books/:{{book_id}}"></a></h1>
+        <h1><a href="/books/{{book_id}}">{{title}}</a></h1>
         <h2>{{author}}</h2>
       </div>
     </section>
-    <script>
-    <section id="single-display">
+  </script>
+  <script id="single-template container" type="text/x-handlebars-template">
+    <section>
       <h1>{{title}}</h1>
       <h2>{{author}}</h2>
       <h2>{{isbn}}</h2>
@@ -30,7 +32,7 @@
   <header>
     <nav>
       <ul>
-        <li class='navigation'><a href="/books">HOME</a></li>
+        <li class='navigation'><a href="/">HOME</a></li>
         <li class='navigation'><a href="/new">NEW BOOK</a></li>
         <li class='navigation'><a href="/about">ABOUT US</a></li>
       </ul>
@@ -72,6 +74,7 @@
     </section>
 
     <section id="book-list" class="container"></section>
+    <section id="single-display"></section>
     <section id="about" class="container"><h2>About Us </h2></section>
 
   </main>
