@@ -45,12 +45,28 @@ let API_URL = 'http://localhost:3000';
     console.log(ctx.params.book_id);
 
     $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
-      .then(results=>{
-        //Book.loadAll(results);
+      .then(results =>{
         results= new Book(results[0]);
         callback(results);
       })
       .catch(app.errorView.initErrorPage);
+  };
+  Book.prototype.updateRecord = function(book_id, callback) {
+    $.ajax({
+      url: `${API_URL}/api/v1/books/${book_id}`,
+      method: 'PUT',
+      data: {
+        title: this.title,
+        author: this.author,
+        isbn: this.isbn,
+        img_url: this.img_url,
+        description: this.description
+      }
+    })
+      .then(data => {
+        console.log(data);
+        if (callback) callback();
+      });
   };
   module.Book=Book;
 })(app);
