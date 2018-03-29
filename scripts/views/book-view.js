@@ -17,6 +17,7 @@ var app = app || {};
     //$('#book-form').empty();
     $('#book-form').show();
     $('#single-display').hide();
+    ('#update-form').hide();
     $('#book-form').on('submit', bookView.submit);
   };
   bookView.submit = event => {
@@ -32,39 +33,43 @@ var app = app || {};
   };
 
   bookView.initSingleBookPage = (book)=>{
-    bookView.initUpdateFormPage(book);
     console.log(book);
     $('.container').hide();
     $('#single-display').empty();
     $('#book-form').hide();
+    $('#update-form').hide();
     var template = Handlebars.compile($('#single-template').text());
     $('#single-display').append(template(book));
     $('#single-display').show();
-    $('#update-button').on('click', $(`#update-form`).show());
+    //bookView.initUpdateFormPage(book);
+    $('#update-button').on('click',()=>$(`#update-form`).show());
+    $('#submit-update').on('click',()=>bookView.submitUpdate(book) );
   };
 
-  bookView.initUpdateFormPage = () => {//book as param
-    //$('.container').hide();
-  //   $('#book-form').empty();
-  //   $('#update-form').show();
-  //  $('#single-display').hide();
-    var template = Handlebars.compile($('#').text());
-    //$('#single-display').append(template(book));
-    //handlebars fors
-    $('#submit-update').on('submit', bookView.submitUpdate);
-  };
+  // bookView.initUpdateFormPage = (book) => {
+  //   console.log(book);
+  //   //   //$('.container').hide();
+  //   // //   $('#book-form').empty();
+  //   // //   $('#update-form').show();
+  //   // //  $('#single-display').hide();
+  //   //   var template = Handlebars.compile($('#update-button').text());
+  //   //   var book_id = $(template).attr('data-id');
+  //   //   console.log(book_id);
+  //   //
+  // };
   bookView.submitUpdate = (event) => {
-    console.log('update');
     event.preventDefault();
-    //let book_id= data property;
-    let book = new app.Book({
-      title: $('#book-title').val(),
-      author: $('#book-author').val(),
-      isbn: $('#isbn').val(),
-      img_url: $('#img-url').val(),
-      description: $('#description').val()
-    });
-    book.updateRecord(book_id);
+    console.log(book);
+    console.log('update');
+  //   //let book_id= data property;
+  //   let book = new app.Book({
+  //     title: $('#book-title').val(),
+  //     author: $('#book-author').val(),
+  //     isbn: $('#isbn').val(),
+  //     img_url: $('#img-url').val(),
+  //     description: $('#description').val()
+  //   });
+  //   book.updateRecord(book_id);
   };
 
 

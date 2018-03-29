@@ -31,6 +31,7 @@ let API_URL = 'http://localhost:3000';
     bookData = bookData.sort((a,b)=> b.title - a.title);
     Book.all = bookData.map(ele => new Book(ele));
     $('#book-form').hide();
+    
   };
 
   Book.fetchAll = (callback) => {
@@ -46,6 +47,7 @@ let API_URL = 'http://localhost:3000';
 
     $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
       .then(results =>{
+        console.log(results);
         results= new Book(results[0]);
         callback(results);
       })
