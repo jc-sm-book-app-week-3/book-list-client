@@ -14,6 +14,7 @@ var app = app || {};
   bookView.initSingleBookPage = (ctx)=>{
     $('.container').hide();
     $('#single-display').empty();
+    $('#book-form').empty();
     let filtered= app.Book.all.filter(x=>x.book_id === ctx.params.book_id)[0];
     console.log('winning');
     var template = Handlebars.compile($('#single-template').text());
