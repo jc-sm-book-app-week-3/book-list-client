@@ -23,7 +23,7 @@
       <h2>{{isbn}}</h2>
       <img class="picture" src="{{img_url}}"/>
       <p>{{description}}</p>
-      <button id="update-button" data-id={{book_id}} type="click" href="/books/{{book_id}}/update">Update</button>
+      <button id="update-button" data-id={{book_id}} type="submit" ><a href="/books/{{book_id}}/update">Update</a></button>
       <button id="delete-button" data-id={{book_id}}>Delete</button>
     </section>
   </script>
@@ -95,7 +95,7 @@
           <input type="text" id="img-url" placeholder="Image URL" required>
         </label>
         <textarea id="description" rows="8" cols="40" required></textarea>
-        <button id="submit-update" type="click">Submit</button>
+        <button id="submit-update" type="submit"><a href="/">submit</a></button>
       </form>
     </section>
 

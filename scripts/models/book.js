@@ -14,6 +14,7 @@ let API_URL = 'http://localhost:3000';
     return template(this);
   };
   Book.prototype.insertRecord = function(callback) {
+    console.log('winning');
     $.post(`${API_URL}/api/v1/books`, {
       title: this.title,
       author: this.author,
@@ -48,16 +49,17 @@ let API_URL = 'http://localhost:3000';
     $.getJSON(`${API_URL}/api/v1/books/${ctx.params.book_id}`)
       .then(results =>{
         console.log(results);
-        results= new Book(results[0]);
-        callback(results);
+        ctx.book= new Book(results[0]);
+        callback(ctx.book);
       })
       .catch(app.errorView.initErrorPage);
   };
-  Book.prototype.updateRecord = function(book_id, callback) {
+  Book.prototype.updateRecord = function(callback) {
     $.ajax({
-      url: `${API_URL}/api/v1/books/${book_id}`,
+      url: `${API_URL}/api/v1/books/${this.book_id}`,
       method: 'PUT',
       data: {
+        book_id: this.book_id,
         title: this.title,
         author: this.author,
         isbn: this.isbn,
